@@ -1,0 +1,7 @@
+- include: setup.yml
+  become: true
+
+- include: deploy.yml
+  tags:
+    - deploy
+  become: true

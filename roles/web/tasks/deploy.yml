@@ -1,0 +1,12 @@
+- name: Bundle install
+  command: "bundle --deployment --without='test development' chdir={{ home }}"
+  environment: "{{ env }}"
+  register: result
+  changed_when: "'Installing' in result.stdout"
+
+- name: Db migration
+  command: "./bin/rake db:migrate chdir={{ home }}"
+  environment: "{{ env }}"
+  register: result
+  changed_when: result.stderr != ''
+

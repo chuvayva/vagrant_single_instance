@@ -1,0 +1,11 @@
+#!/usr/bin/env ansible-playbook
+---
+
+- name: Vagrant single instance deployment
+
+  hosts: all
+
+  roles:
+    - common
+    - db
+    - web

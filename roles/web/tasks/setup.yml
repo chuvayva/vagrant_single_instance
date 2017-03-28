@@ -1,0 +1,25 @@
+- apt_repository: repo={{ item }}
+  with_items:
+    - "ppa:chris-lea/node.js"
+    - "ppa:brightbox/ruby-ng"
+
+- name: install apt packages
+  apt: pkg={{ item }} update_cache=yes cache_valid_time=3600
+  with_items:
+    # for app
+    - "ruby{{ ruby_version }}"
+    - nodejs
+    - nginx
+    - git
+    # for bundle
+    - make
+    - ruby{{ ruby_version }}-dev
+    - libpq-dev
+    - g++
+    - zlib1g-dev # for nokogiri
+
+- file: src=/usr/bin/{{ item }}{{ ruby_version }} dest=/usr/bin/{{ item }} state=link
+  with_items: [ruby, gem, irb]
+
+- gem: name=bundler state=present user_install=no
+

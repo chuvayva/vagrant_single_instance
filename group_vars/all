@@ -1,0 +1,10 @@
+project: teamvillage
+rails_env: development
+
+database: "{{ project }}_{{ rails_env }}"
+postgresql_version: 9.6
+home: "/vagrant/{{ project }}"
+ruby_version: 2.3
+env:
+  RAILS_ENV: development
+  DATABASE_URL: "postgres://postgres:postgres@localhost:5432/{{ database }}"
