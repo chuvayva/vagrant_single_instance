@@ -6,6 +6,8 @@
 - name: install apt packages
   apt: pkg={{ item }} update_cache=yes cache_valid_time=3600
   with_items:
+    # for ssh agent forwarding
+    - acl
     # for app
     - "ruby{{ ruby_version }}"
     - nodejs
@@ -23,3 +25,4 @@
 
 - gem: name=bundler state=present user_install=no
 
+- file: path={{ home }} state=directory owner={{ user }} group={{ user }}

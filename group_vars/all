@@ -1,9 +1,12 @@
 project: teamvillage
+clone_url: git@github.com:chuvayva/teamvillage.git
 rails_env: development
+revision: rails5
 
 database: "{{ project }}_{{ rails_env }}"
 postgresql_version: 9.6
-home: "/vagrant/{{ project }}"
+home: "/var/www/{{ project }}"
+user: vagrant
 ruby_version: 2.3
 env:
   RAILS_ENV: development

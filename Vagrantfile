@@ -11,11 +11,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.hostname = 'web'
 
-  #config.vm.network "private_network", ip: "192.168.0.2"
   config.vm.network "forwarded_port", guest: 3000, host: 3000
 
   config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.synced_folder PROJECT_PATH, "/vagrant/#{PROJECT}"
 
   config.ssh.forward_agent = true
 
