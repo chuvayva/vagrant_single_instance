@@ -1,6 +1,4 @@
 VAGRANTFILE_API_VERSION = "2"
-PROJECT = 'teamvillage'
-PROJECT_PATH = "/Users/BiT/Documents/Dev/Web/#{PROJECT}"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
