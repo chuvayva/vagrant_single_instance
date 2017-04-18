@@ -1,7 +1,7 @@
 project: teamvillage
 clone_url: git@github.com:chuvayva/teamvillage.git
 rails_env: development
-revision: rails5
+revision: master
 
 database: "{{ project }}_{{ rails_env }}"
 postgresql_version: 9.6
